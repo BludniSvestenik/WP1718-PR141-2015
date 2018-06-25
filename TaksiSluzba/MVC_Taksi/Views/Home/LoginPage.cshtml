@@ -1,0 +1,67 @@
+﻿@model MVC_Taksi.Models.Korisnik
+
+@{
+    ViewBag.Title = "LoginPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <section>
+ 
+        <p>
+            <fieldset>
+                <legend>Prijava:</legend>
+                <table>
+                    <tr><td></td><td style="color:red;">@TempData["ErrorLogin"]</td></tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <label>Korisnicko Ime :</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.KorisnickoIme)
+                                @Html.ValidationMessageFor(model => model.KorisnickoIme)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <label>Lozinka :</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.PasswordFor(model => model.Lozinka)
+                                @Html.ValidationMessageFor(model => model.Lozinka)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Login" />
+                        </td>
+                        <td>
+                            <a href="~/Home/Registracija">Registracija</a>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+            </fieldset>
+
+        </p>
+    </section>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

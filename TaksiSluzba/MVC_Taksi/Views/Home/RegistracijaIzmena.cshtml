@@ -1,0 +1,196 @@
+﻿@model MVC_Taksi.Models.Korisnik
+
+@{
+    ViewBag.Title = "Izmena Korisnika";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    $(function () {
+        $("#Date").datepicker();
+    });
+</script>
+<h2>UpdateStudentRegistartion</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+        <p>
+            Ime :@Model.Ime &nbsp&nbsp @Model.Prezime<br />
+            Pol :@Model.Pol<br />
+            JMBG :@Model.JMBG<br />
+            Telefon :@Model.KontaktTelefon<br />
+            Email :@Model.Email<br />
+            Uloga :@Model.Uloga<br />
+        </p>
+ 
+
+            <section>
+                <h1>Welcome Student Update Registration form in MVC4</h1>
+                <p>
+                    <fieldset>
+                        <legend>Fill Students Details </legend>
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        <label>Korisnicko ime :</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(model1 => model.KorisnickoIme)
+                                        @Html.ValidationMessageFor(model1 => model.KorisnickoIme)
+                                        @Html.EditorFor(@Model.KorisnickoIme)
+                                        @Html.ValidationMessageFor(@Model.KorisnickoIme)
+                                    </div>
+                                </td>
+
+                                &nbsp&nbsp&nbsp&nbsp
+
+                                <td>
+                                    <div class="editor-label">
+                                        <label>Lozinka :</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.PasswordFor(@Model.Lozinka)
+                                        @Html.ValidationMessageFor(@Model.Lozinka)
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        <label>Ime :</label>
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(@Model.Ime)
+                                        @Html.ValidationMessageFor(@Model.Ime)
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-label">
+                                        <label>Prezime :</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(@Model.Prezime)
+                                        @Html.ValidationMessageFor(@Model.Prezime)
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        <label>JMBG :</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(@Model.JMBG)
+                                        @Html.ValidationMessageFor(@Modell.JMBG)
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-label">
+                                        <label>Kontakt telefon :</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(@Model.KontaktTelefon)
+                                        @Html.ValidationMessageFor(@Model.KontaktTelefon)
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        <label>Pol :</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.DropDownList("Pol", new List<SelectListItem>
+                                        {
+                                            new SelectListItem{ Text = "Musko",  Value = "MUSKO"},
+                                            new SelectListItem{ Text = "Zensko", Value = "ZENSKO"},
+                                      }, "Izaberite pol")
+                                        @Html.ValidationMessageFor(@Model.Pol)
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-label">
+                                        <label>Email :</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(@Model.Email)
+                                        @Html.ValidationMessageFor(@Model.Email)
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        <label>Uloga :</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(@Model.Uloga)
+                                        @Html.ValidationMessageFor(@Model.Uloga)
+                                    </div>
+                                </td>
+
+                                <td></td>
+
+                            </tr>
+
+
+
+                        </table>
+
+
+                <p>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" id="submt" value="Update Values" />
+                </p>
+        </fieldset>
+        </p>
+        </section>
+ 
+
+        </fieldset>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+<script>
+    $(document).ready(function () {
+        $("#submt").click(function () {
+            if ($("#City").val() == '') { alert("Please select city"); return false; }
+            if ($("#State").val() == '') { alert("Please select state"); return false; }
+        });
+    });
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

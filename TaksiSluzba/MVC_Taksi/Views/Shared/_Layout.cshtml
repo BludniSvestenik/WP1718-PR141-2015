@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+    <style>
+
+        #pozadina {
+            height: 100%;
+            background: white;  
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background: linear-gradient(#918a7a, #f4f2ee);  
+        }
+
+        .header {
+            max-width: 1060px;
+            height: 200px;
+            margin: 0 auto;
+
+        }
+
+        .headerlogo {
+            float: left;
+            height: 200px;
+            margin: 0 auto;
+ 
+        }
+
+         .headermeni {
+            margin-top: 80px;
+            height: 40px;
+            width: 760px;
+            float: left;
+            background: linear-gradient(#fda700, #feca00); 
+        }
+
+
+         .headermeni-nav {
+            float: left;
+            margin: 0;
+        }
+
+         .headermeni-nav > li{
+            float: left;
+            margin: 0;
+            display: block;
+        }
+
+            .headermeni-nav > li > a {
+                position: relative;
+                display: block;
+                padding: 10px 15px;
+                font-size: 14px;
+                color: #000000;
+                display: block;
+            }
+
+        .sredinabg {
+            max-width: 100%;
+            height: 600px;
+            margin: 0 auto;
+
+        }
+
+         .banerbg {
+            height: 200px;
+            margin: 0 auto;
+            background: linear-gradient(to right,rgba(244,242,232,0.5), rgba(244,242,232,0)); 
+        }
+
+         .baner {
+            max-width: 1060px;
+ 
+            margin: 0 auto;
+            padding: 10px 15px;
+        }
+        .banersep {
+            height: 20px;
+            margin: 0 auto;
+            background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 10px, rgba(0, 0, 0, 0.3) 10px, rgba(0, 0, 0, 0.3) 20px );
+        }
+
+         .stranicabg {
+ 
+            margin: 0 auto;
+            background: linear-gradient(#fda700, #feca00); 
+        }
+
+         .stranica {
+            max-width: 1060px;
+ 
+            margin: 0 auto;
+            padding: 10px 15px;
+        }
+
+         .stranicalevo {
+            float: left;
+            width: 700px; 
+            margin: 0 auto;
+            padding: 10px 15px;
+        }
+        .stranicadesno {
+            float: left;
+            width: 300px; 
+            margin: 0 auto;
+            padding: 10px 10px;
+            background-color: #eeeeee;
+            border-radius: 6px;
+        }
+
+    </style>
+
+</head>
+<body id="pozadina">
+
+    <!--------Header----------->
+    <div class="header">
+        <div class="headerlogo">
+            <img src="/Images/taxi logo.png" style="height: 200px; float: left;" />
+        </div>
+        <div class="headermeni">
+            <ul class="headermeni-nav">
+
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                @if (Session["KorisnikData"] != null)
+                {
+                    // <li><a href="~/Home/RegistracijaIzmena">Izmena</a></li>
+                    <li><a href="@Url.Action("RegistracijaIzmena", "Home", new { @korisnickoime = @Session["KorisnikData"] })">Update</a></li>
+                }
+
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                @if (Session["KorisnikData"] != null)
+                {
+                    <li><a href="~/Home/Signout">LogOut</a></li>
+                }
+
+            </ul>
+        </div>
+
+    </div>
+    <!--------Header----------->
+
+    <!--------Sredina----------->
+    <div class="sredina">
+        <div class="sredinabg">
+            <img src="/Images/taxi.png" style="height: 400px; float: right;" />
+            <div class="banerbg">
+                <div class="baner">
+                    <<h2>Welcome Taxi Homepage MVC5</h2>
+                </div>
+            </div>
+
+            <div class="banersep">
+            </div>
+
+            <div class="stranicabg">
+                <div class="stranica">
+                    <div class="container body-content">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <!--------Sredina----------->
+
+    <!--------Footer----------->
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+    <!--------Footer----------->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Korisnik>
+  <item>
+    <KorisnickoIme>1</KorisnickoIme>
+    <Lozinka>1</Lozinka>
+    <Ime>Aleksa</Ime>
+    <Prezime>Ignjatovic</Prezime>
+    <Pol>MUSKO</Pol>
+    <JMBG>1412996810097</JMBG>
+    <KontaktTelefon>063494562</KontaktTelefon>
+    <Email>bludnisvestenik1@gmail.com</Email>
+    <Uloga>DISPECER</Uloga>
+    <Voznje></Voznje>
+  </item>
+  <item>
+    <KorisnickoIme>2</KorisnickoIme>
+    <Lozinka>2</Lozinka>
+    <Ime>2</Ime>
+    <Prezime>2</Prezime>
+    <Pol>MUSKO</Pol>
+    <JMBG>2</JMBG>
+    <KontaktTelefon>2</KontaktTelefon>
+    <Email>2</Email>
+    <Uloga>MUSTERIJA</Uloga>
+    <Voznje />
+  </item>
+</Korisnik>
