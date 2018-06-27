@@ -279,7 +279,7 @@
 
         .mytooltip .tooltiptext {
             visibility: hidden;
-            width: 120px;
+            width: 220px;
             background-color: #555;
             color: #fff;
             text-align: center;
@@ -309,6 +309,15 @@
             visibility: visible;
             opacity: 1;
         }
+
+        .show {
+          display: block
+        }
+        .hidde {
+          display: none
+        }
+
+
 
     </style>
 
@@ -371,6 +380,13 @@
 
                         </div>
                     </div>
+                <div class="dropdown" >
+                        <button class="dropbtn">Voznje</button>
+                        <div class="dropdown-content">
+                            <a href="@Url.Action("OtkaziVoznju", "Home" )">Promeni Stanje Voznje</a>
+
+                        </div>
+                    </div>
                 
                     
                 }
@@ -386,6 +402,13 @@
 
                        </div>
                    </div>
+                <div class="dropdown" >
+                        <button class="dropbtn">Voznje</button>
+                        <div class="dropdown-content">
+                            <a href="@Url.Action("PromeniStanjeVoznje", "Home" )">Promeni Stanje Voznje</a>
+
+                        </div>
+                    </div>
 
                             
 

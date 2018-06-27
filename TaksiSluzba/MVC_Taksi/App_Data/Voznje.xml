@@ -28,10 +28,12 @@
     <Vozac>3</Vozac>
     <Iznos>400</Iznos>
     <Komentar>
+      <Opis>nije stigao</Opis>
       <DatumObjave>2018-06-27T14:16:05.2730066+02:00</DatumObjave>
+      <Voznja>2018-06-27T21:20:04.0155573+02:00</Voznja>
       <Ocena>TRI</Ocena>
     </Komentar>
-    <StatusVoznje>KREIRANA</StatusVoznje>
+    <StatusVoznje>USPESNA</StatusVoznje>
   </Voznja>
   <Voznja>
     <DatumIVremePorudzbine>2018-06-27T10:09:53.0437819+02:00</DatumIVremePorudzbine>
@@ -62,9 +64,10 @@
     <Iznos>400</Iznos>
     <Komentar>
       <DatumObjave>2018-06-27T14:16:05.2730066+02:00</DatumObjave>
+      <Voznja>2018-06-27T21:20:04.0155573+02:00</Voznja>
       <Ocena>CETIRI</Ocena>
     </Komentar>
-    <StatusVoznje>OBRADJENA</StatusVoznje>
+    <StatusVoznje>NEUSPESNA</StatusVoznje>
   </Voznja>
   <Voznja>
     <DatumIVremePorudzbine>2018-06-27T12:07:03.1837439+02:00</DatumIVremePorudzbine>
@@ -95,6 +98,7 @@
     <Iznos>500</Iznos>
     <Komentar>
       <DatumObjave>2018-06-27T14:16:05.2730066+02:00</DatumObjave>
+      <Voznja>2018-06-27T21:20:04.0155573+02:00</Voznja>
       <Ocena>PET</Ocena>
     </Komentar>
     <StatusVoznje>OBRADJENA</StatusVoznje>
@@ -127,10 +131,12 @@
     <Vozac>3</Vozac>
     <Iznos>100</Iznos>
     <Komentar>
+      <Opis>kvar</Opis>
       <DatumObjave>2018-06-27T14:16:05.2730066+02:00</DatumObjave>
+      <Voznja>2018-06-27T21:20:04.0155573+02:00</Voznja>
       <Ocena>JEDAN</Ocena>
     </Komentar>
-    <StatusVoznje>OBRADJENA</StatusVoznje>
+    <StatusVoznje>NEUSPESNA</StatusVoznje>
   </Voznja>
   <Voznja>
     <DatumIVremePorudzbine>2018-06-27T14:16:05.2639553+02:00</DatumIVremePorudzbine>
@@ -161,8 +167,79 @@
     <Iznos>200</Iznos>
     <Komentar>
       <DatumObjave>2018-06-27T14:16:05.2730066+02:00</DatumObjave>
+      <Voznja>2018-06-27T21:20:04.0155573+02:00</Voznja>
       <Ocena>NULA</Ocena>
     </Komentar>
-    <StatusVoznje>OBRADJENA</StatusVoznje>
+    <StatusVoznje>PRIHVACENA</StatusVoznje>
+  </Voznja>
+  <Voznja>
+    <DatumIVremePorudzbine>2018-06-28T00:07:07.26286+02:00</DatumIVremePorudzbine>
+    <Lokacija>
+      <X>242</X>
+      <Y>242</Y>
+      <Adresa>
+        <Ulica>sadas</Ulica>
+        <Broj>242</Broj>
+        <NaseljenoMesto>sadasd</NaseljenoMesto>
+        <PozivniBroj>2424</PozivniBroj>
+      </Adresa>
+    </Lokacija>
+    <Tip>KOMBI</Tip>
+    <Musterija>Srdjan</Musterija>
+    <Odrediste>
+      <X>242</X>
+      <Y>5252</Y>
+      <Adresa>
+        <Ulica>asdasdas</Ulica>
+        <Broj>23523</Broj>
+        <NaseljenoMesto>asdasda</NaseljenoMesto>
+        <PozivniBroj>22442</PozivniBroj>
+      </Adresa>
+    </Odrediste>
+    <Dispecer>11</Dispecer>
+    <Vozac>4</Vozac>
+    <Iznos>200</Iznos>
+    <Komentar>
+      <Opis>niko nije stigao</Opis>
+      <DatumObjave>2018-06-28T00:07:07.2718605+02:00</DatumObjave>
+      <Voznja>2018-06-28T00:07:07.2718605+02:00</Voznja>
+      <Ocena>NULA</Ocena>
+    </Komentar>
+    <StatusVoznje>OTKAZANA</StatusVoznje>
+  </Voznja>
+  <Voznja>
+    <DatumIVremePorudzbine>2018-06-28T01:09:19.7822966+02:00</DatumIVremePorudzbine>
+    <Lokacija>
+      <X>242</X>
+      <Y>353</Y>
+      <Adresa>
+        <Ulica>asdasd</Ulica>
+        <Broj>242</Broj>
+        <NaseljenoMesto>fasdf</NaseljenoMesto>
+        <PozivniBroj>2323</PozivniBroj>
+      </Adresa>
+    </Lokacija>
+    <Tip>KOMBI</Tip>
+    <Musterija>Srdjan</Musterija>
+    <Odrediste>
+      <X>242</X>
+      <Y>535</Y>
+      <Adresa>
+        <Ulica>asdasd</Ulica>
+        <Broj>2342</Broj>
+        <NaseljenoMesto>sadasd</NaseljenoMesto>
+        <PozivniBroj>24254</PozivniBroj>
+      </Adresa>
+    </Odrediste>
+    <Dispecer>11</Dispecer>
+    <Vozac>3</Vozac>
+    <Iznos>500</Iznos>
+    <Komentar>
+      <Opis>kvar</Opis>
+      <DatumObjave>2018-06-28T01:09:19.7913485+02:00</DatumObjave>
+      <Voznja>2018-06-28T01:09:19.7913485+02:00</Voznja>
+      <Ocena>DVA</Ocena>
+    </Komentar>
+    <StatusVoznje>OTKAZANA</StatusVoznje>
   </Voznja>
 </ArrayOfVoznja>

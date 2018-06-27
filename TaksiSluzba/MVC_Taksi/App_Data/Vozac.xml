@@ -36,7 +36,7 @@
     <Uloga>VOZAC</Uloga>
     <Voznje />
     <Automobil>002</Automobil>
-    <Lokacija>X: 111, Y: 222, Ulica: Mileticeva 24, Mesto: Novi Sad, Pozivni broj: 24242</Lokacija>
+    <Lokacija />
   </item>
   <item>
     <KorisnickoIme>3</KorisnickoIme>
@@ -50,11 +50,11 @@
     <Uloga>VOZAC</Uloga>
     <Voznje />
     <Automobil>0078</Automobil>
-    <Lokacija>X: 242, Y: 4224, Ulica: Mileticeva 24, Mesto: Novi Sad, Pozivni broj: 2424</Lokacija>
+    <Lokacija>X: 252, Y: 322, Ulica: asdasf 2424, Mesto: safgas, Pozivni broj: 24242</Lokacija>
   </item>
   <item>
     <KorisnickoIme>4</KorisnickoIme>
-    <Lozinka>4</Lozinka>
+    <Lozinka>1</Lozinka>
     <Ime>Aca</Ime>
     <Prezime>Petrovic</Prezime>
     <Pol>MUSKO</Pol>
@@ -75,18 +75,6 @@
     <JMBG>25235233</JMBG>
     <KontaktTelefon>063534346</KontaktTelefon>
     <Email>marij@gmail.com</Email>
-    <Uloga>MUSTERIJA</Uloga>
-    <Voznje />
-  </item>
-  <item>
-    <KorisnickoIme>Srdjan</KorisnickoIme>
-    <Lozinka>1</Lozinka>
-    <Ime>Srdjan22</Ime>
-    <Prezime>Ignjatovic</Prezime>
-    <Pol>MUSKO</Pol>
-    <JMBG>1225432523</JMBG>
-    <KontaktTelefon>0635255</KontaktTelefon>
-    <Email>kica025@gmail.com</Email>
     <Uloga>MUSTERIJA</Uloga>
     <Voznje />
   </item>

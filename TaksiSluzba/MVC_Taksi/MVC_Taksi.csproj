@@ -168,7 +168,9 @@
   <ItemGroup>
     <Content Include="App_Data\Automobil.xml" />
     <Content Include="App_Data\Korisnik.xml" />
-    <Content Include="App_Data\Voznje.xml" />
+    <Content Include="App_Data\Voznje.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -216,6 +218,8 @@
     <Content Include="Views\Home\PromenaLokacijeVozaca.cshtml" />
     <Content Include="Views\Home\DodajVoznju.cshtml" />
     <Content Include="Views\Home\ListaSvihVoznji.cshtml" />
+    <Content Include="Views\Home\PromeniStanjeVoznje.cshtml" />
+    <Content Include="Views\Home\OtkaziVoznju.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />

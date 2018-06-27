@@ -1,0 +1,144 @@
+﻿@model IEnumerable<MVC_Taksi.Models.Voznja>
+
+@{
+    ViewBag.Title = "Otkazi Voznju";
+}
+
+
+<div class="stranicalevo">
+
+    <table class="t1">
+        <thead>
+            <tr>
+                <th width="30">Detalji</th>
+                <th width="200">Vreme</th>
+                <th width="50">Musterija</th>
+                <th width="50">Vozac</th>
+                <th width="50">Dispecer</th>
+                <th width="50">Tip</th>
+                <th width="50">Iznos</th>
+                <th width="50">Status</th>
+                <th width="50">Ocena</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            if (item.Musterija == TempData["KorisnickoIme"].ToString() && (item.StatusVoznje.ToString() != "OTKAZANA"))
+            {
+                using (Html.BeginForm("OtkaziVoznju", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+
+
+
+                    <tr>
+                        <td>
+                            <div class="mytooltip">
+                                Detalji
+                                <span class="tooltiptext">
+                                    Lokacija Polaska: <br />
+                                    X:&nbsp;@Html.DisplayFor(modelItem => item.Lokacija.X) <br />
+                                    Y:&nbsp;@Html.DisplayFor(modelItem => item.Lokacija.Y) <br />
+                                    @Html.DisplayFor(modelItem => item.Lokacija.Adresa.Ulica) &nbsp;
+                                    @Html.DisplayFor(modelItem => item.Lokacija.Adresa.Broj) <br />
+                                    @Html.DisplayFor(modelItem => item.Lokacija.Adresa.NaseljenoMesto) <br />
+                                    @Html.DisplayFor(modelItem => item.Lokacija.Adresa.PozivniBroj) <br /><br />
+                                    Odrediste: <br />
+                                    X:&nbsp;@Html.DisplayFor(modelItem => item.Odrediste.X) <br />
+                                    Y:&nbsp;@Html.DisplayFor(modelItem => item.Odrediste.Y) <br />
+                                    @Html.DisplayFor(modelItem => item.Odrediste.Adresa.Ulica) &nbsp;
+                                    @Html.DisplayFor(modelItem => item.Odrediste.Adresa.Broj) <br />
+                                    @Html.DisplayFor(modelItem => item.Odrediste.Adresa.NaseljenoMesto) <br />
+                                    @Html.DisplayFor(modelItem => item.Odrediste.Adresa.PozivniBroj)
+
+
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DatumIVremePorudzbine)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Musterija)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Vozac)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dispecer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tip)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Iznos)
+                        </td>
+                        <td>
+                            @Html.DropDownList("StatusVoznje", new List<SelectListItem>
+                                                {
+                                                    new SelectListItem{ Text = "Otkazana", Value = "OTKAZANA"},
+                                              }, "Otkazi",
+                                              new { @onclick = "CallChangefunc(this.value)" })
+
+
+                            <div id="inputs-show" class="hidde">
+                                @Html.Editor("opis")
+                            </div>
+
+
+
+                            <script>
+                                function CallChangefunc(val) {
+                                    var popup = document.getElementById("inputs-show");
+
+
+                                    if (val == 'OTKAZANA') {
+
+                                        popup.classList.toggle("show");
+
+                                    }
+                                    else {
+                                        popup.classList.toggle("hide");
+
+                                    }
+
+                                }
+
+
+                            </script>
+
+
+
+
+
+                        </td>
+                        <td>
+                            <div class="mytooltip">
+                                @Html.DropDownList("Ocena", new List<SelectListItem>
+                                        {
+                                            new SelectListItem{ Text = "0",   Value = "0"},
+                                            new SelectListItem{ Text = "1",    Value = "1"},
+                                            new SelectListItem{ Text = "2",  Value = "2"},
+                                            new SelectListItem{ Text = "3",  Value = "3"},
+                                            new SelectListItem{ Text = "4",  Value = "4"},
+                                            new SelectListItem{ Text = "5",  Value = "5"},
+                                      }, "Ocena")
+                            </div>
+
+                        </td>
+                        <td>
+
+                            @Html.Hidden("datum", item.DatumIVremePorudzbine)
+                            <input type="submit" value="Promeni Status" />
+                        </td>
+                    </tr>
+
+                }
+            }
+        }
+    </table>
+
+</div>
+

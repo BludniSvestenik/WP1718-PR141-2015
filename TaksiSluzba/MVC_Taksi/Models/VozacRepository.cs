@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
-
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace MVC_Taksi.Models
 {
@@ -20,7 +22,29 @@ namespace MVC_Taksi.Models
         {
             try
             {
-                sviVozaci = new List<Vozac>();
+
+
+
+
+
+
+
+
+               // if (File.Exists(HttpContext.Current.Server.MapPath("~/App_Data/Korisnik.xml")))
+              //  {
+                   // XmlSerializer deserializer = new XmlSerializer(typeof(List<Vozac>));
+                   // using (TextReader textReader = new StreamReader(HttpContext.Current.Server.MapPath("~/App_Data/Korisnik.xml")))
+                   // {
+
+                       // object obj = deserializer.Deserialize(textReader);
+                       // sviVozaci = (List<Vozac>)obj;
+
+
+                   // }
+                //}
+
+
+               sviVozaci = new List<Vozac>();
                 VozacData = XDocument.Load(HttpContext.Current.Server.MapPath("~/App_Data/Korisnik.xml"));
                 var Vozaci = from t in VozacData.Descendants("item")
                                 where (string)t.Element("Uloga") == "VOZAC"
@@ -66,10 +90,27 @@ namespace MVC_Taksi.Models
         {
             return sviVozaci.Find(item => item.KorisnickoIme == korisnickoime && item.Lozinka == lozinka);
         }
+        public Vozac GetVozac(string _ime, string _prezime, int i)
+        {
+            return sviVozaci.Find(item => item.Ime == _ime && item.Prezime == _prezime);
+        }
 
 
         public void InsertVozac(Vozac vozac)
         {
+
+
+
+
+          //  sviVozaci.Add(vozac);
+
+           // XmlSerializer serializer = new XmlSerializer(typeof(List<Vozac>));
+           // using (TextWriter textWriter = new StreamWriter(HttpContext.Current.Server.MapPath("~/App_Data/Korisnik.xml")))
+          //  {
+          //      serializer.Serialize(textWriter, sviVozaci);
+          //  }
+
+
 
             VozacData.Root.Add(new XElement("item",
                 new XElement("KorisnickoIme", vozac.KorisnickoIme),
@@ -93,8 +134,25 @@ namespace MVC_Taksi.Models
 
         public void EditVozac(Vozac vozac)
         {
+            //int brojac = 0;
             try
             {
+                //foreach(Vozac item in sviVozaci)
+                //{
+                //    if (item.KorisnickoIme == trenutniVozac)
+                //    {
+                //        sviVozaci[brojac] = vozac;
+                //    }
+                //    brojac++;
+               // }
+
+               // XmlSerializer serializer = new XmlSerializer(typeof(List<Vozac>));
+              //  using (TextWriter textWriter = new StreamWriter(HttpContext.Current.Server.MapPath("~/App_Data/Korisnik.xml")))
+              //  {
+              //      serializer.Serialize(textWriter, sviVozaci);
+              //  }
+
+
                 XElement node = VozacData.Root.Elements("item").Where(i => (string)i.Element("KorisnickoIme") == vozac.KorisnickoIme).FirstOrDefault();
 
                 node.SetElementValue("KorisnickoIme", vozac.KorisnickoIme);
@@ -109,7 +167,7 @@ namespace MVC_Taksi.Models
                 node.SetElementValue("Automobil", vozac.Automobil);
                 node.SetElementValue("Lokacija", vozac.Lokacija);
 
-                VozacData.Save(HttpContext.Current.Server.MapPath("~/App_Data/Vozac.xml"));
+                VozacData.Save(HttpContext.Current.Server.MapPath("~/App_Data/Korisnik.xml"));
             }
             catch (Exception)
             {

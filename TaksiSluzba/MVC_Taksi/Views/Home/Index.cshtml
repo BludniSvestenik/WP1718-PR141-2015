@@ -92,6 +92,17 @@
             Telefon :@TempData["KontaktTelefon"] <br />
             Email :@TempData["Email"] <br />
             Uloga :@TempData["Uloga"] <br />
+
+            @if (TempData["Uloga"] != null)
+            {
+                if (TempData["Uloga"].ToString() == "VOZAC")
+                {
+                    <p> 
+                        Lokacija: @TempData["Lokacija"] 
+                    </p>  
+                }
+            }
+
         </p>
 
     </div>

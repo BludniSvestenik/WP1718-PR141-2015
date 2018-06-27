@@ -29,6 +29,7 @@ namespace MVC_Taksi.Controllers
                 if (Session["KorisnikData"] != null)
                 {
                     korisnik = _KorisnikRepository.GetKorisnik(Session["KorisnikData"].ToString());
+                    vozac = _VozacRepository.GetVozac(Session["KorisnikData"].ToString());
                     TempData["KorisnickoIme"] = korisnik.KorisnickoIme;
                     TempData["Lozinka"] = korisnik.Lozinka;
                     TempData["Uloga"] = korisnik.Uloga;
@@ -37,6 +38,8 @@ namespace MVC_Taksi.Controllers
                     TempData["Pol"] = korisnik.Pol;
                     TempData["JMBG"] = korisnik.JMBG;
                     TempData["KontaktTelefon"] = korisnik.KontaktTelefon;
+                    if (vozac != null)
+                        TempData["Lokacija"] = vozac.Lokacija;
                     TempData["Email"] = korisnik.Email;
 
                     if (korisnik.Uloga.ToString() == "VOZAC")
@@ -67,7 +70,7 @@ namespace MVC_Taksi.Controllers
                     SviKorisnici = _KorisnikRepository.UzmiKorisnike().Where(s => s.KorisnickoIme == korisnickoIme && s.Lozinka == lozinka).ToList();
 
                     korisnik = _KorisnikRepository.GetKorisnik(korisnickoIme, lozinka);
-
+                    vozac = _VozacRepository.GetVozac(korisnickoIme, lozinka);
                     //if (SviKorisnici.Count != 0)
                     if (korisnik != null)
                     {
@@ -80,6 +83,8 @@ namespace MVC_Taksi.Controllers
                         TempData["Pol"] = korisnik.Pol;
                         TempData["JMBG"] = korisnik.JMBG;
                         TempData["KontaktTelefon"] = korisnik.KontaktTelefon;
+                        if (vozac != null)
+                            TempData["Lokacija"] = vozac.Lokacija;
                         TempData["Email"] = korisnik.Email;
 
                         if (korisnik.Uloga.ToString() == "VOZAC")
@@ -350,7 +355,7 @@ namespace MVC_Taksi.Controllers
         }
 
         [HttpPost]
-        public ActionResult ListaSvihVoznji(Voznja voznja, string sortDatum)
+        public ActionResult ListaSvihVoznji(Voznja voznja, string sortDatum, string pretragaOdOcene, string pretragaDoOcene, string iznosOd, string iznosDo, string imeKorisnika, string prezimeKorisnika)
         {
 
 
@@ -393,9 +398,40 @@ namespace MVC_Taksi.Controllers
                 }
                 else if (sortDatum == "sort3")
                 {
-                    sortiranaListaPoDatumu = sortiranaListaPoDatumu.OrderBy(m => m.Komentar.Ocena).ToList();
+                    sortiranaListaPoDatumu = sortiranaListaPoDatumu.OrderByDescending(m => m.Komentar.Ocena).ToList();
                 }
 
+                if (iznosOd == "")
+                {
+                    iznosOd = "0";
+                }
+                if (iznosDo == "")
+                {
+                    iznosDo = "999999999";
+                }
+                sortiranaListaPoDatumu = sortiranaListaPoDatumu.Where(s => Int32.Parse(s.Iznos) >= Int32.Parse(iznosOd)).ToList();
+                sortiranaListaPoDatumu = sortiranaListaPoDatumu.Where(s => Int32.Parse(s.Iznos) <= Int32.Parse(iznosDo)).ToList();
+
+                if (pretragaOdOcene == "")
+                {
+                    pretragaOdOcene = "0";
+                }
+                if (pretragaDoOcene == "")
+                {
+                    pretragaDoOcene = "5";
+                }
+                sortiranaListaPoDatumu = sortiranaListaPoDatumu.Where(s => (int)s.Komentar.Ocena >= Int32.Parse(pretragaOdOcene)).ToList();
+                sortiranaListaPoDatumu = sortiranaListaPoDatumu.Where(s => (int)s.Komentar.Ocena <= Int32.Parse(pretragaDoOcene)).ToList();
+
+
+                Korisnik korisnik1 = _KorisnikRepository.GetKorisnik(imeKorisnika, prezimeKorisnika, 1);
+
+                if (korisnik1 != null)
+                    sortiranaListaPoDatumu = sortiranaListaPoDatumu.Where(s => s.Musterija == korisnik1.KorisnickoIme).ToList();
+                else if (imeKorisnika == "" && prezimeKorisnika == "")
+                    return View(sortiranaListaPoDatumu);
+                else
+                    sortiranaListaPoDatumu = new List<Voznja>();
 
                 return View(sortiranaListaPoDatumu);
             }
@@ -405,6 +441,7 @@ namespace MVC_Taksi.Controllers
             }
         }
         #endregion
+
 
         #region Dodaj Automobil
 
@@ -515,16 +552,107 @@ namespace MVC_Taksi.Controllers
         }
 
         [HttpPost]
-        public ActionResult PromenaLokacijeVozaca(Automobil automobil)
+        public ActionResult PromenaLokacijeVozaca(Vozac vozac, string xKoordinata, string yKoordinata, string ulica, string broj, string naseljenoMesto, string pozivniBroj)
         {
             try
             {
-                _AutomobilRepository.ZaduziAutomobil(automobil);
-                _VozacRepository.ZaduziVozaca(automobil);
+
+                vozac = _VozacRepository.GetVozac(Session["KorisnikData"].ToString());
+                string lokacija = "X: " + xKoordinata + ", Y: " + yKoordinata + ", Ulica: " + ulica + " " + broj + ", Mesto: " + naseljenoMesto + ", Pozivni broj: " + pozivniBroj;
+                vozac.Lokacija = lokacija;
+                _VozacRepository.EditVozac(vozac);
                 //TempData["Sucss"] = "You are record update successfully..";
                 //TempData["mySesstion0"] = korisnik.Email; TempData["mySesstion1"] = korisnik.Lozinka;
 
-                return RedirectToAction("../Home/ListaVozaca");
+                return RedirectToAction("../Home/Index");
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        #endregion
+
+
+        #region Promeni Stanje Voznje
+
+        [HttpGet]
+        public ActionResult PromeniStanjeVoznje(string korisnickoIme)
+        {
+
+
+            try
+            {
+
+                vozac = _VozacRepository.GetVozac(Session["KorisnikData"].ToString());
+                TempData["KorisnickoIme"] = vozac.KorisnickoIme;
+                TempData["Lozinka"] = vozac.Lozinka;
+                TempData["Uloga"] = vozac.Uloga;
+                TempData["VozacIme"] = korisnickoIme;
+                return View(_VoznjeRepository.UzmiVoznje().ToList());
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        [HttpPost]
+        public ActionResult PromeniStanjeVoznje(Voznja voznja, DateTime datum, string opis)
+        {
+            try
+            {
+
+                _VoznjeRepository.EditVoznja(voznja, datum, opis);
+                //TempData["Sucss"] = "You are record update successfully..";
+                //TempData["mySesstion0"] = korisnik.Email; TempData["mySesstion1"] = korisnik.Lozinka;
+
+                return RedirectToAction("../Home/Index");
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        #endregion
+
+
+        #region Promeni Stanje Voznje
+
+        [HttpGet]
+        public ActionResult OtkaziVoznju(string korisnickoIme)
+        {
+
+
+            try
+            {
+
+                korisnik = _KorisnikRepository.GetKorisnik(Session["KorisnikData"].ToString());
+                TempData["KorisnickoIme"] = korisnik.KorisnickoIme;
+                TempData["Lozinka"] = korisnik.Lozinka;
+                TempData["Uloga"] = korisnik.Uloga;
+                TempData["VozacIme"] = korisnickoIme;
+                return View(_VoznjeRepository.UzmiVoznje().ToList());
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        [HttpPost]
+        public ActionResult OtkaziVoznju(Voznja voznja, DateTime datum, string opis, string Ocena)
+        {
+            try
+            {
+
+                _VoznjeRepository.EditVoznja(voznja, datum, opis, Ocena);
+                //TempData["Sucss"] = "You are record update successfully..";
+                //TempData["mySesstion0"] = korisnik.Email; TempData["mySesstion1"] = korisnik.Lozinka;
+
+                return RedirectToAction("../Home/Index");
             }
             catch (Exception)
             {

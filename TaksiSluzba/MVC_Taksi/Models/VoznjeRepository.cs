@@ -43,7 +43,7 @@ namespace MVC_Taksi.Models
 
 
                 //sveVoznje = new List<Voznja>();
-               // VoznjaData = XDocument.Load(HttpContext.Current.Server.MapPath("~/App_Data/Voznje.xml"));
+                //VoznjaData = XDocument.Load(HttpContext.Current.Server.MapPath("~/App_Data/Voznje.xml"));
                // var Voznje = from t in VoznjaData.Descendants("item")
               //                   select new Voznja(
               //                   t.Element("Lokacija").Value,
@@ -141,7 +141,83 @@ namespace MVC_Taksi.Models
             }
         }
 
+        public void EditVoznja(Voznja voznja, DateTime datum, string opis, string ocena)
+        {
+            int brojac = 0;
+            try
+            {
 
+                foreach(Voznja item in sveVoznje)
+                {
+                    if (item.DatumIVremePorudzbine.ToString() == datum.ToString())
+                    {
+                        sveVoznje[brojac].StatusVoznje = voznja.StatusVoznje;
+                        sveVoznje[brojac].Komentar.Ocena = (Ocena)Enum.Parse(typeof (Ocena), ocena);
+                        if (opis != "")
+                        {
+                            sveVoznje[brojac].Komentar.Opis = opis;
+                        }
+                    }
+                    brojac++;
+                }
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Voznja>));
+                using (TextWriter textWriter = new StreamWriter(HttpContext.Current.Server.MapPath("~/App_Data/Voznje.xml")))
+                {
+                    serializer.Serialize(textWriter, sveVoznje);
+                }
+
+
+                //XElement node = VoznjaData.Root.Elements("Voznja").Where(i => (DateTime)i.Element("DatumIVremePorudzbine") == datum).FirstOrDefault();
+
+               // node.SetElementValue("Status", voznja.StatusVoznje);
+
+               // VoznjaData.Save(HttpContext.Current.Server.MapPath("~/App_Data/Voznje.xml"));
+            }
+            catch(Exception)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public void EditVoznja(Voznja voznja, DateTime datum, string opis)
+        {
+            int brojac = 0;
+            try
+            {
+
+                foreach (Voznja item in sveVoznje)
+                {
+                    if (item.DatumIVremePorudzbine.ToString() == datum.ToString())
+                    {
+                        sveVoznje[brojac].StatusVoznje = voznja.StatusVoznje;
+                        
+                        if (opis != "")
+                        {
+                            sveVoznje[brojac].Komentar.Opis = opis;
+                        }
+                    }
+                    brojac++;
+                }
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Voznja>));
+                using (TextWriter textWriter = new StreamWriter(HttpContext.Current.Server.MapPath("~/App_Data/Voznje.xml")))
+                {
+                    serializer.Serialize(textWriter, sveVoznje);
+                }
+
+
+                //XElement node = VoznjaData.Root.Elements("Voznja").Where(i => (DateTime)i.Element("DatumIVremePorudzbine") == datum).FirstOrDefault();
+
+                // node.SetElementValue("Status", voznja.StatusVoznje);
+
+                // VoznjaData.Save(HttpContext.Current.Server.MapPath("~/App_Data/Voznje.xml"));
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         public static XmlElement SerializeToXmlElement(object o)
         {

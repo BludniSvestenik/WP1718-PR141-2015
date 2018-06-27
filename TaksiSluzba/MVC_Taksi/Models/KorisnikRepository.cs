@@ -59,6 +59,10 @@ namespace MVC_Taksi.Models
             return sviKorisnici.Find(item => item.KorisnickoIme == korisnickoime && item.Lozinka == lozinka);
         }
 
+        public Korisnik GetKorisnik(string _ime, string _prezime, int i)
+        {
+            return sviKorisnici.Find(item => item.Ime == _ime && item.Prezime == _prezime);
+        }
 
         public void InsertKorisnik(Korisnik Korisnik)
         {

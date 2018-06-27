@@ -11,7 +11,8 @@
     <table>
         <tr>
             <td>
-                @Html.DropDownList("StatusVoznje", new List<SelectListItem>
+                <div class ="styled-select green rounded">
+                    @Html.DropDownList("StatusVoznje", new List<SelectListItem>
                                         {
                                             new SelectListItem{ Text = "Sve",  Value = "SVE"},
                                             new SelectListItem{ Text = "Kreirana",  Value = "KREIRANA"},
@@ -23,20 +24,97 @@
                                             new SelectListItem{ Text = "Uspesna", Value = "USPESNA"},
                                       }, "Izaberite status")
 
+                </div>
+               
+
             </td>
 
             <td>
-                @Html.DropDownList("sortDatum", new List<SelectListItem>
+                <div class="styled-select green rounded">
+                                        @Html.DropDownList("sortDatum", new List<SelectListItem>
                                         {
                                             new SelectListItem{ Text = "Bez sortiranja",   Value = "sort0"},
                                             new SelectListItem{ Text = "Datum rastuci",    Value = "sort1"},
                                             new SelectListItem{ Text = "Datum opadajuci",  Value = "sort2"},
                                             new SelectListItem{ Text = "Ocena",  Value = "sort3"},
                                       }, "Sortiraj")
-
+                </div>
             </td>
             <td>
-                <input type="submit" value="Sortiraj" />
+                <input type="submit" value="Pretraga" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Pretraga po Oceni:
+            </td>
+            <td>
+                Pretraga po Ceni:
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <div class="styled-select green rounded">
+                    @Html.DropDownList("pretragaOdOcene", new List<SelectListItem>
+                                        {
+                                            new SelectListItem{ Text = "0",   Value = "0"},
+                                            new SelectListItem{ Text = "1",    Value = "1"},
+                                            new SelectListItem{ Text = "2",  Value = "2"},
+                                            new SelectListItem{ Text = "3",  Value = "3"},
+                                            new SelectListItem{ Text = "4",  Value = "4"},
+                                            new SelectListItem{ Text = "5",  Value = "5"},
+                                      }, "Ocena")
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                   @Html.Editor("iznosOd")
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="styled-select green rounded">
+                    @Html.DropDownList("pretragaDoOcene", new List<SelectListItem>
+                                        {
+                                            new SelectListItem{ Text = "0",   Value = "0"},
+                                            new SelectListItem{ Text = "1",    Value = "1"},
+                                            new SelectListItem{ Text = "2",  Value = "2"},
+                                            new SelectListItem{ Text = "3",  Value = "3"},
+                                            new SelectListItem{ Text = "4",  Value = "4"},
+                                            new SelectListItem{ Text = "5",  Value = "5"},
+                                      }, "Ocena")
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.Editor("iznosDo")
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>-------------------------------------------------</td>
+            <td>-------------------------------------------------</td>
+        </tr>
+        <tr>
+            <td>
+                Ime Korisnika [Vozac ili Musterija]: 
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.Editor("imeKorisnika")
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Prezime Korisnika [Vozac ili Musterija]
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.Editor("prezimeKorisnika")
+                </div>
             </td>
         </tr>
     </table>
@@ -53,6 +131,7 @@
                 <th width="50">Tip</th>
                 <th width="50">Iznos</th>
                 <th width="50">Status</th>
+                <th width="50">Ocena</th>
             </tr>
         </thead>
 
@@ -103,6 +182,19 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.StatusVoznje)
+                </td>
+                <td>
+                    <div class="mytooltip">
+                        @Html.DisplayFor(modelItem => item.Komentar.Ocena)
+                        <span class="tooltiptext">
+                           Komentar <br />
+                            Opis:&nbsp;@Html.DisplayFor(modelItem => item.Komentar.Opis) <br />
+                            Datum Objave Komentara:&nbsp;@Html.DisplayFor(modelItem => item.Komentar.DatumObjave) <br />
+                            Musterija: &nbsp;@Html.DisplayFor(modelItem => item.Komentar.Korisnik) <br />
+                            Datum formiranja voznje: &nbsp;@Html.DisplayFor(modelItem => item.Komentar.Voznja) <br />
+                        </span>
+                    </div>
+                    
                 </td>
             </tr>
 
