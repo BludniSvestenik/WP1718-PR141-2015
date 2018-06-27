@@ -15,12 +15,12 @@ namespace MVC_Taksi.Models
             this.Opis = null;
             this.DatumObjave = DateTime.Now;
             this.Korisnik = null;
-            this.Voznja = null;
+            this.Voznja = DateTime.Now;
             this.Ocena = Ocena.NULA;
         }
 
 
-        public Komentar(string opis, Korisnik korisnik, Voznja voznja, Ocena ocena)
+        public Komentar(string opis, Korisnik korisnik, DateTime voznja, Ocena ocena)
         {
             this.Opis = opis;
             this.DatumObjave = DateTime.Now;
@@ -44,7 +44,7 @@ namespace MVC_Taksi.Models
 
 
         [Required(ErrorMessage = "Voznja je neophodna")]
-        public Voznja Voznja { get; set; }
+        public DateTime Voznja { get; set; }
 
 
         [Required(ErrorMessage = "Ocena je neophodna")]

@@ -9,7 +9,7 @@
         $("#Date").datepicker();
     });
 </script>
-<h2>UpdateStudentRegistartion</h2>
+
 
 @using (Html.BeginForm())
 {
@@ -18,21 +18,11 @@
 
     <fieldset>
 
-        <p>
-            Ime :@Model.Ime &nbsp&nbsp @Model.Prezime<br />
-            Pol :@Model.Pol<br />
-            JMBG :@Model.JMBG<br />
-            Telefon :@Model.KontaktTelefon<br />
-            Email :@Model.Email<br />
-            Uloga :@Model.Uloga<br />
-        </p>
- 
-
             <section>
-                <h1>Welcome Student Update Registration form in MVC4</h1>
+ 
                 <p>
                     <fieldset>
-                        <legend>Fill Students Details </legend>
+                        <legend>Izmena podataka korisnika </legend>
 
                         <table>
                             <tr>
@@ -43,10 +33,8 @@
                                 </td>
                                 <td>
                                     <div class="editor-field">
-                                        @Html.EditorFor(model1 => model.KorisnickoIme)
-                                        @Html.ValidationMessageFor(model1 => model.KorisnickoIme)
-                                        @Html.EditorFor(@Model.KorisnickoIme)
-                                        @Html.ValidationMessageFor(@Model.KorisnickoIme)
+                                        @Html.EditorFor(model1 => Model.KorisnickoIme)
+                                        @Html.ValidationMessageFor(model1 => Model.KorisnickoIme)
                                     </div>
                                 </td>
 
@@ -59,8 +47,8 @@
                                 </td>
                                 <td>
                                     <div class="editor-field">
-                                        @Html.PasswordFor(@Model.Lozinka)
-                                        @Html.ValidationMessageFor(@Model.Lozinka)
+                                        @Html.PasswordFor(model1 => Model.Lozinka)
+                                        @Html.ValidationMessageFor(model1 => Model.Lozinka)
                                     </div>
                                 </td>
                             </tr>
@@ -74,8 +62,8 @@
                                 </td>
                                 <td>
                                     <div class="editor-field">
-                                        @Html.EditorFor(@Model.Ime)
-                                        @Html.ValidationMessageFor(@Model.Ime)
+                                        @Html.EditorFor(model1 => Model.Ime)
+                                        @Html.ValidationMessageFor(model1 => Model.Ime)
                                     </div>
                                 </td>
                                 <td>
@@ -85,8 +73,8 @@
                                 </td>
                                 <td>
                                     <div class="editor-field">
-                                        @Html.EditorFor(@Model.Prezime)
-                                        @Html.ValidationMessageFor(@Model.Prezime)
+                                        @Html.EditorFor(model1 => Model.Prezime)
+                                        @Html.ValidationMessageFor(model1 => Model.Prezime)
                                     </div>
                                 </td>
                             </tr>
@@ -99,8 +87,8 @@
                                 </td>
                                 <td>
                                     <div class="editor-field">
-                                        @Html.EditorFor(@Model.JMBG)
-                                        @Html.ValidationMessageFor(@Modell.JMBG)
+                                        @Html.EditorFor(model1 => Model.JMBG)
+                                        @Html.ValidationMessageFor(model1 => Model.JMBG)
                                     </div>
                                 </td>
                                 <td>
@@ -110,8 +98,8 @@
                                 </td>
                                 <td>
                                     <div class="editor-field">
-                                        @Html.EditorFor(@Model.KontaktTelefon)
-                                        @Html.ValidationMessageFor(@Model.KontaktTelefon)
+                                        @Html.EditorFor(model1 => Model.KontaktTelefon)
+                                        @Html.ValidationMessageFor(model1 => Model.KontaktTelefon)
                                     </div>
                                 </td>
 
@@ -124,13 +112,13 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="editor-field">
+                                    <div class="styled-select green rounded">
                                         @Html.DropDownList("Pol", new List<SelectListItem>
                                         {
                                             new SelectListItem{ Text = "Musko",  Value = "MUSKO"},
                                             new SelectListItem{ Text = "Zensko", Value = "ZENSKO"},
                                       }, "Izaberite pol")
-                                        @Html.ValidationMessageFor(@Model.Pol)
+                                        @Html.ValidationMessageFor(model1 => Model.Pol)
                                     </div>
                                 </td>
                                 <td>
@@ -140,38 +128,29 @@
                                 </td>
                                 <td>
                                     <div class="editor-field">
-                                        @Html.EditorFor(@Model.Email)
-                                        @Html.ValidationMessageFor(@Model.Email)
+                                        @Html.EditorFor(@model1 => Model.Email)
+                                        @Html.ValidationMessageFor(model1 => Model.Email)
                                     </div>
                                 </td>
                             </tr>
-
 
                             <tr>
-                                <td>
-                                    <div class="editor-label">
-                                        <label>Uloga :</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(@Model.Uloga)
-                                        @Html.ValidationMessageFor(@Model.Uloga)
-                                    </div>
-                                </td>
-
                                 <td></td>
-
+                                <td></td>
+                                <td></td>
+                                <td align="right">
+                                    <input type="submit" id="submt" value="Update Values" />
+                                </td>
                             </tr>
+
+
+                            @Html.HiddenFor(model => model.Uloga, new { Value = "MUSTERIJA" })
 
 
 
                         </table>
 
 
-                <p>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" id="submt" value="Update Values" />
-                </p>
         </fieldset>
         </p>
         </section>

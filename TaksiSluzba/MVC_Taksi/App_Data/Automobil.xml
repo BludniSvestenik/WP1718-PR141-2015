@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Automobil>
+  <item>
+    <Vozac></Vozac>
+    <Godiste>2008</Godiste>
+    <BrojRegistarskeOznake>SO33ER1</BrojRegistarskeOznake>
+    <BrojTaksiVozila>001</BrojTaksiVozila>
+    <Tip>PUTNICKI</Tip>
+  </item>
+  <item>
+    <Vozac>2</Vozac>
+    <Godiste>2003</Godiste>
+    <BrojRegistarskeOznake>SO41QA1</BrojRegistarskeOznake>
+    <BrojTaksiVozila>002</BrojTaksiVozila>
+    <Tip>PUTNICKI</Tip>
+  </item>
+  <item>
+    <Vozac>4</Vozac>
+    <Godiste>2011</Godiste>
+    <BrojRegistarskeOznake>SO15BRA</BrojRegistarskeOznake>
+    <BrojTaksiVozila>003</BrojTaksiVozila>
+    <Tip>KOMBI</Tip>
+  </item>
+</Automobil>

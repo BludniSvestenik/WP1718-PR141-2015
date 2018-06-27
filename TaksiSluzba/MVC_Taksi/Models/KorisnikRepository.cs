@@ -96,7 +96,6 @@ namespace MVC_Taksi.Models
                 node.SetElementValue("KontaktTelefon", korisnik.KontaktTelefon);
                 node.SetElementValue("Email", korisnik.Email);
                 node.SetElementValue("Uloga", korisnik.Uloga);
-                node.SetElementValue("Voznje", korisnik.Voznje);
                 KorisnikData.Save(HttpContext.Current.Server.MapPath("~/App_Data/Korisnik.xml"));
             }
             catch (Exception)

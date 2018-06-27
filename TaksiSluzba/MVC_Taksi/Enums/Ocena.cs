@@ -7,11 +7,11 @@ namespace MVC_Taksi.Models
 {
     public enum Ocena
     {
-        NULA,
-        JEDAN,
-        DVA,
-        TRI,
-        CETIRI,
-        PET
+        NULA = 0,
+        JEDAN = 1,
+        DVA = 2,
+        TRI = 3,
+        CETIRI = 4,
+        PET = 5
     }
 }

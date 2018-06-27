@@ -34,6 +34,7 @@
         }
 
          .headermeni {
+             padding-left: 20px;
             margin-top: 80px;
             height: 40px;
             width: 760px;
@@ -88,7 +89,7 @@
         }
 
          .stranicabg {
- 
+             height: 100%;
             margin: 0 auto;
             background: linear-gradient(#fda700, #feca00); 
         }
@@ -101,18 +102,212 @@
         }
 
          .stranicalevo {
+             position: absolute;
             float: left;
             width: 700px; 
-            margin: 0 auto;
+            margin-left: 10px;
             padding: 10px 15px;
         }
         .stranicadesno {
+            position: absolute;
             float: left;
             width: 300px; 
-            margin: 0 auto;
+            margin-top: 160px;
+            margin-left: 700px;
             padding: 10px 10px;
             background-color: #eeeeee;
             border-radius: 6px;
+        }
+
+
+        .dropbtn {
+            height: 40px;
+            background: linear-gradient(#fda700, #feca00); 
+            color: black;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropbtn:hover {
+            background: linear-gradient(#feca00, #feca00); 
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            height: 40px;
+            float: left;
+            background: linear-gradient(#fda700, #feca00); 
+        }
+        .dropdown a {
+            color: black;
+            text-decoration: none;
+            display: block;
+        }
+
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #000000;
+
+        }
+
+        .styled-select {
+            background: url(/Images/15xvbd5.png) no-repeat 96% 0;
+            height: 29px;
+            overflow: hidden;
+            width: 240px;
+            color: black;
+        }
+        .styled-select select {
+            background: transparent;
+            border: none;
+            font-size: 14px;
+            height: 29px;
+            padding: 5px;  
+            width: 268px;
+            color: black;
+        }
+        .rounded {
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+        }
+        .green   { background-color: #779126; }
+        .green select   { color: #000; }
+
+
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: #bd810e;
+            border: none;
+            color: white;
+            padding: 10px 10px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+
+        input[type=text] ,input[type=password] {
+            background-color: #fff;
+            width: 100%;
+            padding: 3px 3px;
+            margin: 2px 0;
+            box-sizing: border-box;
+            border: 1px solid #5e4412;
+            outline: none;
+            border-radius: 4px;
+        }
+
+        input[type=text]:focus ,input[type=password]:focus {
+            background-color: #e4c68c;
+            border-radius: 4px;
+        }
+
+
+
+        table.t1 {
+            position: absolute;
+            margin-left: 10px;
+            margin-top: 50px;
+            border-collapse: collapse;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+        }
+        table.t1 th, table.t1 td {
+            padding: 3px 3px;
+        }
+        table.t1 thead th {
+            background: #a88841;
+            text-align: center;
+            font-size: 12px;
+            color: #000;
+            border-bottom: 1px solid #836b3c;
+        }
+        table.t1 tr {
+            border-right: 1px solid #836b3c;
+        }
+        table.t1 tbody tr {
+            border-bottom: 1px solid #836b3c;
+        }
+        table.t1 tbody tr:nth-child(odd) {
+            background: #f8da9e;
+        }
+        table.t1 tbody th, table.t1 tbody tr:nth-child(even) td {
+            border-right: 1px solid #836b3c;
+        }
+        table.t1 tfoot th {
+            background: #4f81bd;
+            text-align: left;
+            font-weight: normal;
+            font-size: 10px;
+            color: #fff;
+        }
+        table.t1 tr *:nth-child(3), table.t1 tr *:nth-child(4) {
+            text-align: right;
+        }
+
+
+        .mytooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .mytooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .mytooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .mytooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
 
     </style>
@@ -126,25 +321,104 @@
             <img src="/Images/taxi logo.png" style="height: 200px; float: left;" />
         </div>
         <div class="headermeni">
+
+
+            <div class="dropdown" >
+                <button class="dropbtn">
+                    @Html.ActionLink("Home", "Index", "Home")               
+                </button>
+            </div>
+
+
+            @if (TempData["Uloga"] != null)
+            {
+                if (TempData["Uloga"].ToString() == "DISPECER")
+                {
+                    <div class="dropdown" >
+                        <button class="dropbtn">DISPECER</button>
+                        <div class="dropdown-content">
+                            <a href="@Url.Action("RegistracijaIzmenaDispecer", "Home", new { @korisnickoime = @Session["KorisnikData"] })">Izmena [DISPECER]</a>
+                        </div>
+                    </div>
+
+
+
+                    <div class="dropdown" >
+                        <button class="dropbtn">Vozaci</button>
+                        <div class="dropdown-content">
+                            <a href="@Url.Action("RegistracijaVozaca", "Home" )">Registruj Vozaca</a>
+                            <a href="@Url.Action("ListaVozaca", "Home" )">Lista Vozaca</a>
+
+                        </div>
+                    </div>
+                    <div class="dropdown" >
+                        <button class="dropbtn">Voznje</button>
+                        <div class="dropdown-content">
+                            <a href="@Url.Action("DodajVoznju", "Home" )">Dodaj Voznju</a>
+                            <a href="@Url.Action("ListaSvihVoznji", "Home" )">Lista Svih Voznji</a>
+
+                        </div>
+                    </div>
+                
+                }
+
+                else if (TempData["Uloga"].ToString() == "MUSTERIJA")
+                {
+                    <div class="dropdown" >
+                        <button class="dropbtn">MUSTERIJA</button>
+                        <div class="dropdown-content">
+                            <a href="@Url.Action("RegistracijaIzmena", "Home", new { @korisnickoime = @Session["KorisnikData"] })">Izmena [MUSTERIJA]</a>
+
+                        </div>
+                    </div>
+                
+                    
+                }
+
+                else if (TempData["Uloga"].ToString() == "VOZAC")
+                {
+
+                    <div class="dropdown" >
+                        <button class="dropbtn">VOZAC</button>
+                        <div class="dropdown-content">
+                            <a href="@Url.Action("RegistracijaIzmenaVozac", "Home", new { @korisnickoime = @Session["KorisnikData"] })">Izmena Profila</a>
+                            <a href="@Url.Action("PromenaLokacijeVozaca", "Home", new { @korisnickoime = @Session["KorisnikData"] })">Promena Lokacije</a>
+
+                       </div>
+                   </div>
+
+                            
+
+                }
+
+            }
+            
+            <div class="dropdown">
+                <button class="dropbtn">
+                    @Html.ActionLink("About", "About", "Home")
+                </button>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">
+                    @Html.ActionLink("Contact", "Contact", "Home")
+                </button>
+            </div>
+
+
+            @if (Session["KorisnikData"] != null)
+            {
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="~/Home/Signout">LogOut</a>
+                    </button>
+                </div>
+            }
+
+
+
             <ul class="headermeni-nav">
 
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-
-                @if (Session["KorisnikData"] != null)
-                {
-                    // <li><a href="~/Home/RegistracijaIzmena">Izmena</a></li>
-                    <li><a href="@Url.Action("RegistracijaIzmena", "Home", new { @korisnickoime = @Session["KorisnikData"] })">Update</a></li>
-                }
-
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-
-                @if (Session["KorisnikData"] != null)
-                {
-                    <li><a href="~/Home/Signout">LogOut</a></li>
-                }
-
-            </ul>
         </div>
 
     </div>
@@ -182,6 +456,9 @@
         <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
     </footer>
     <!--------Footer----------->
+
+
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

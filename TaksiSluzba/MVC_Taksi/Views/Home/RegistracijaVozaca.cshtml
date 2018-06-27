@@ -1,7 +1,7 @@
 ﻿@model MVC_Taksi.Models.Korisnik
 
 @{
-    ViewBag.Title = "Registracija Korisnika";
+    ViewBag.Title = "Registracija Vozaca";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,7 +16,7 @@
 </script>
 
 
-@using (Html.BeginForm("Registracija", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("RegistracijaVozaca", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -144,12 +144,10 @@
                             <input type="submit" id="submt" value="Registruj se" />
                         </td>
                     </tr>
-  
-                    @Html.HiddenFor(model => model.Uloga, new { Value = "MUSTERIJA" })
-                 
 
 
-                    
+                    @Html.HiddenFor(model => model.Uloga, new { Value = "VOZAC" })
+
                 </table>
 
         </fieldset>

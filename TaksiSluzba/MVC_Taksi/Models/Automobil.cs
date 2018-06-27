@@ -19,7 +19,14 @@ namespace MVC_Taksi.Models
 
         }
 
-
+        public Automobil(string vozac, string godiste, string BRO, string BTV, string tip)
+        {
+            this.Vozac = vozac;
+            this.Godiste = godiste;
+            this.BrojRegistarskeOznake = BRO;
+            this.BrojTaksiVozila = BTV;
+            this.Tip = (TipAutomobila)Enum.Parse(typeof(TipAutomobila), tip); 
+        }
 
 
         [Required(ErrorMessage = "Vozac je neophodan")]

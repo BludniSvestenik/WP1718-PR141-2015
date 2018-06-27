@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVC_Taksi.Models.Vozac>
+
+@{
+    ViewBag.Title = "Lista Vozaca";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="t1">
+    <thead>
+        <tr>
+            <th width="100">Korisnicko Ime</th>
+            <th width="100">Ime</th>
+            <th width="100">Prezime</th>
+            <th width="100">Pol</th>
+            <th width="100">Kontakt Telefon</th>
+            <th width="100">Email</th>
+            <th width="100">Automobil</th>
+        </tr>
+    </thead>
+
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KorisnickoIme)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prezime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KontaktTelefon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @if (item.Automobil == "")
+                    {
+                        <a href="@Url.Action("DodajVozilo", "Home", new { @korisnickoime = item.KorisnickoIme })">Dodaj Vozilo</a>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Automobil)
+                    }
+                </td>
+            </tr>
+
+
+        }
+
+</table>

@@ -148,6 +148,7 @@
     </Compile>
     <Compile Include="Models\Adresa.cs" />
     <Compile Include="Models\Automobil.cs" />
+    <Compile Include="Models\AutomobilRepository.cs" />
     <Compile Include="Models\IKorisnikRepository.cs" />
     <Compile Include="Models\Komentar.cs" />
     <Compile Include="Models\Korisnik.cs" />
@@ -159,11 +160,15 @@
     <Compile Include="Enums\TipAutomobila.cs" />
     <Compile Include="Enums\Uloga.cs" />
     <Compile Include="Models\Vozac.cs" />
+    <Compile Include="Models\VozacRepository.cs" />
     <Compile Include="Models\Voznja.cs" />
+    <Compile Include="Models\VoznjeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Automobil.xml" />
     <Content Include="App_Data\Korisnik.xml" />
+    <Content Include="App_Data\Voznje.xml" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -203,6 +208,14 @@
     <Content Include="Views\Home\LoginPage.cshtml" />
     <Content Include="Views\Home\Registracija.cshtml" />
     <Content Include="Views\Home\RegistracijaIzmena.cshtml" />
+    <Content Include="Views\Home\RegistracijaVozaca.cshtml" />
+    <Content Include="Views\Home\RegistracijaIzmenaDispecer.cshtml" />
+    <Content Include="Views\Home\RegistracijaIzmenaVozac.cshtml" />
+    <Content Include="Views\Home\ListaVozaca.cshtml" />
+    <Content Include="Views\Home\DodajVozilo.cshtml" />
+    <Content Include="Views\Home\PromenaLokacijeVozaca.cshtml" />
+    <Content Include="Views\Home\DodajVoznju.cshtml" />
+    <Content Include="Views\Home\ListaSvihVoznji.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />

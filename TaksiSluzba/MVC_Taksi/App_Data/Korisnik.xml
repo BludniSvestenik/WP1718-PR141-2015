@@ -10,17 +10,71 @@
     <KontaktTelefon>063494562</KontaktTelefon>
     <Email>bludnisvestenik1@gmail.com</Email>
     <Uloga>DISPECER</Uloga>
-    <Voznje></Voznje>
+    <Voznje />
+  </item>
+  <item>
+    <KorisnickoIme>11</KorisnickoIme>
+    <Lozinka>11</Lozinka>
+    <Ime>Aleksa</Ime>
+    <Prezime>Ignjatovic</Prezime>
+    <Pol>MUSKO</Pol>
+    <JMBG>1412996810097</JMBG>
+    <KontaktTelefon>063494562</KontaktTelefon>
+    <Email>bludnisvestenik1@gmail.com</Email>
+    <Uloga>DISPECER</Uloga>
+    <Voznje />
   </item>
   <item>
     <KorisnickoIme>2</KorisnickoIme>
     <Lozinka>2</Lozinka>
-    <Ime>2</Ime>
-    <Prezime>2</Prezime>
+    <Ime>Dragomir</Ime>
+    <Prezime>Dragomirovic</Prezime>
     <Pol>MUSKO</Pol>
-    <JMBG>2</JMBG>
-    <KontaktTelefon>2</KontaktTelefon>
-    <Email>2</Email>
+    <JMBG>254499577311</JMBG>
+    <KontaktTelefon>0634456841</KontaktTelefon>
+    <Email>drago11@gmail.com</Email>
+    <Uloga>VOZAC</Uloga>
+    <Voznje />
+    <Automobil>002</Automobil>
+    <Lokacija />
+  </item>
+  <item>
+    <KorisnickoIme>3</KorisnickoIme>
+    <Lozinka>3</Lozinka>
+    <Ime>Mirko</Ime>
+    <Prezime>Miric</Prezime>
+    <Pol>MUSKO</Pol>
+    <JMBG>24254433124</JMBG>
+    <KontaktTelefon>0636654234</KontaktTelefon>
+    <Email>mirko@gmail.com</Email>
+    <Uloga>VOZAC</Uloga>
+    <Voznje />
+    <Automobil>0078</Automobil>
+    <Lokacija />
+  </item>
+  <item>
+    <KorisnickoIme>4</KorisnickoIme>
+    <Lozinka>1</Lozinka>
+    <Ime>Aca</Ime>
+    <Prezime>Petrovic</Prezime>
+    <Pol>MUSKO</Pol>
+    <JMBG>11111111</JMBG>
+    <KontaktTelefon>764454</KontaktTelefon>
+    <Email>kica025@gmail.com</Email>
+    <Uloga>VOZAC</Uloga>
+    <Voznje />
+    <Automobil>003</Automobil>
+    <Lokacija />
+  </item>
+  <item>
+    <KorisnickoIme>10</KorisnickoIme>
+    <Lozinka>10</Lozinka>
+    <Ime>Marija</Ime>
+    <Prezime>Koaln</Prezime>
+    <Pol>ZENSKO</Pol>
+    <JMBG>25235233</JMBG>
+    <KontaktTelefon>063534346</KontaktTelefon>
+    <Email>marij@gmail.com</Email>
     <Uloga>MUSTERIJA</Uloga>
     <Voznje />
   </item>

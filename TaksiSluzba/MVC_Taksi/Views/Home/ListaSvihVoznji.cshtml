@@ -1,0 +1,113 @@
+﻿@model IEnumerable<MVC_Taksi.Models.Voznja>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="stranicalevo">
+@using (Html.BeginForm("ListaSvihVoznji", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.DropDownList("StatusVoznje", new List<SelectListItem>
+                                        {
+                                            new SelectListItem{ Text = "Sve",  Value = "SVE"},
+                                            new SelectListItem{ Text = "Kreirana",  Value = "KREIRANA"},
+                                            new SelectListItem{ Text = "Formirana", Value = "FORMIRANA"},
+                                            new SelectListItem{ Text = "Obradjena", Value = "OBRADJENA"},
+                                            new SelectListItem{ Text = "Prihvacena", Value = "PRIHVACENA"},
+                                            new SelectListItem{ Text = "Otkazana", Value = "OTKAZANA"},
+                                            new SelectListItem{ Text = "Neuspesna", Value = "NEUSPESNA"},
+                                            new SelectListItem{ Text = "Uspesna", Value = "USPESNA"},
+                                      }, "Izaberite status")
+
+            </td>
+
+            <td>
+                @Html.DropDownList("sortDatum", new List<SelectListItem>
+                                        {
+                                            new SelectListItem{ Text = "Bez sortiranja",   Value = "sort0"},
+                                            new SelectListItem{ Text = "Datum rastuci",    Value = "sort1"},
+                                            new SelectListItem{ Text = "Datum opadajuci",  Value = "sort2"},
+                                            new SelectListItem{ Text = "Ocena",  Value = "sort3"},
+                                      }, "Sortiraj")
+
+            </td>
+            <td>
+                <input type="submit" value="Sortiraj" />
+            </td>
+        </tr>
+    </table>
+    
+}
+    <table class="t1">
+        <thead>
+            <tr>
+                <th width="30">Detalji</th>
+                <th width="200">Vreme</th>
+                <th width="50">Musterija</th>
+                <th width="50">Vozac</th>
+                <th width="50">Dispecer</th>
+                <th width="50">Tip</th>
+                <th width="50">Iznos</th>
+                <th width="50">Status</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    <div class="mytooltip">
+                        Detalji
+                        <span class="tooltiptext">
+                            Lokacija Polaska: <br />
+                            X:&nbsp;@Html.DisplayFor(modelItem => item.Lokacija.X) <br />
+                            Y:&nbsp;@Html.DisplayFor(modelItem => item.Lokacija.Y) <br />
+                            @Html.DisplayFor(modelItem => item.Lokacija.Adresa.Ulica) &nbsp;
+                            @Html.DisplayFor(modelItem => item.Lokacija.Adresa.Broj) <br />
+                            @Html.DisplayFor(modelItem => item.Lokacija.Adresa.NaseljenoMesto) <br />
+                            @Html.DisplayFor(modelItem => item.Lokacija.Adresa.PozivniBroj) <br /><br />
+                            Odrediste: <br />
+                            X:&nbsp;@Html.DisplayFor(modelItem => item.Odrediste.X) <br />
+                            Y:&nbsp;@Html.DisplayFor(modelItem => item.Odrediste.Y) <br />
+                            @Html.DisplayFor(modelItem => item.Odrediste.Adresa.Ulica) &nbsp;
+                            @Html.DisplayFor(modelItem => item.Odrediste.Adresa.Broj) <br />
+                            @Html.DisplayFor(modelItem => item.Odrediste.Adresa.NaseljenoMesto) <br />
+                            @Html.DisplayFor(modelItem => item.Odrediste.Adresa.PozivniBroj)
+
+
+                        </span>
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumIVremePorudzbine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Musterija)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vozac)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dispecer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Iznos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusVoznje)
+                </td>
+            </tr>
+
+
+        }
+
+    </table>
+</div>

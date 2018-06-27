@@ -7,6 +7,7 @@ namespace MVC_Taksi.Models
 {
     public enum Status
     {
+        SVE,
         KREIRANA,
         OTKAZANA,
         FORMIRANA,

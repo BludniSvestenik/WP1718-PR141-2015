@@ -19,12 +19,12 @@ namespace MVC_Taksi.Models
             this.Odrediste = null;
             this.Dispecer = null;
             this.Vozac = null;
-            this.Iznos = 0;
+            this.Iznos = null;
             this.Komentar = null;
-            this.StatusVoznje = Status.KREIRANA;
+            this.StatusVoznje = Status.OBRADJENA;
         }
 
-        public Voznja(Lokacija lokacija, TipAutomobila tip, Korisnik musterija, Lokacija odrediste, Korisnik dispecer, Vozac vozac, int iznos, Komentar komentar, Status status)
+        public Voznja(Lokacija lokacija, TipAutomobila tip, string musterija, Lokacija odrediste, string dispecer, string vozac, string iznos, Komentar komentar, Status status)
         {
             this.DatumIVremePorudzbine = DateTime.Now;
             this.Lokacija = lokacija;
@@ -55,7 +55,7 @@ namespace MVC_Taksi.Models
 
 
         [Required(ErrorMessage = "Musterija je neophodna")]
-        public Korisnik Musterija { get; set; }
+        public string Musterija { get; set; }
 
 
         [Required(ErrorMessage = "Odrediste je neophodno")]
@@ -63,15 +63,15 @@ namespace MVC_Taksi.Models
 
 
         [Required(ErrorMessage = "Dispecer je neophodan")]
-        public Korisnik Dispecer { get; set; }
+        public string Dispecer { get; set; }
 
 
         [Required(ErrorMessage = "Vozac je neophodan")]
-        public Vozac Vozac { get; set; }
+        public string Vozac { get; set; }
 
 
         [Required(ErrorMessage = "Iznos je neophodan")]
-        public int Iznos { get; set; }
+        public string Iznos { get; set; }
 
 
         [Required(ErrorMessage = "Komentar je neophodan")]

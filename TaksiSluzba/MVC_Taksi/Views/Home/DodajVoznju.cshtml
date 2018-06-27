@@ -1,0 +1,170 @@
+﻿@model MVC_Taksi.Models.Voznja
+
+@{
+    ViewBag.Title = "Rezervisi Voznju";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("DodajVoznju", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <section>
+
+        <p>
+            <fieldset>
+                <legend>Dodaj voznju</legend>
+                <table>
+
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <label>Lokacija Musterije :</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-label">
+                                <label>Odrediste :</label>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.EditorFor(model => model.Lokacija.X)
+                                @Html.ValidationMessageFor(model => model.Lokacija.X)
+                                @Html.EditorFor(model => model.Lokacija.Y)
+                                @Html.ValidationMessageFor(model => model.Lokacija.Y)
+                                @Html.EditorFor(model => model.Lokacija.Adresa)
+                                @Html.ValidationMessageFor(model => model.Lokacija.Adresa)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Odrediste.X)
+                                @Html.ValidationMessageFor(model => model.Odrediste.X)
+                                @Html.EditorFor(model => model.Odrediste.Y)
+                                @Html.ValidationMessageFor(model => model.Odrediste.Y)
+                                @Html.EditorFor(model => model.Odrediste.Adresa)
+                                @Html.ValidationMessageFor(model => model.Odrediste.Adresa)
+                            </div>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <label>Musterija :</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Musterija)
+                                @Html.ValidationMessageFor(model => model.Musterija)
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <label>Vozac :</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Vozac)
+                                @Html.ValidationMessageFor(model => model.Vozac)
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <label>Dispecer :</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Dispecer)
+                                @Html.ValidationMessageFor(model => model.Dispecer)
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <label>Tip :</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="styled-select green rounded">
+                                @Html.DropDownList("Tip", new List<SelectListItem>
+                                        {
+                                            new SelectListItem{ Text = "Putnicki",  Value = "PUTNICKI"},
+                                            new SelectListItem{ Text = "Kombi", Value = "KOMBI"},
+                                      }, "Izaberite Tip")
+                                @Html.ValidationMessageFor(model => model.Tip)
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <label>Iznos :</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Iznos)
+                                @Html.ValidationMessageFor(model => model.Tip)
+                            </div>
+                        </td>
+
+                    </tr>
+
+
+                    @Html.HiddenFor(model => model.Komentar.Opis, new { Value = "" })
+                    @Html.HiddenFor(model => model.Komentar.DatumObjave, new { Value = DateTime.Now })
+                    @Html.HiddenFor(model => model.Komentar.Korisnik, new { Value = "" })
+                    @Html.HiddenFor(model => model.Komentar.Voznja, new { Value = DateTime.Now })
+                    @Html.HiddenFor(model => model.Komentar.Ocena, new { Value = "NULA" })
+
+
+                    <tr>
+                        <td></td>
+                        <td align="right">
+                            <input type="submit" value="Dodaj Voznju" />
+                        </td>
+
+                    </tr>
+
+
+
+                </table>
+
+            </fieldset>
+        </p>
+    </section>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<MVC_Taksi.Models.Automobil>
+
+@{
+    ViewBag.Title = "Dodavanje Vozila";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("DodajVozilo", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <section>
+
+        <p>
+            <fieldset>
+                <legend>Dodaj vozilo</legend>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <label>Korisnicko ime vozaca :</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @TempData["VozacIme"].ToString()
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <label>Automobil :</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="styled-select green rounded">
+
+                                <select name="BrojTaksiVozila" id="BrojTaksiVozila">
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <option value="@item.BrojTaksiVozila">
+                                            @item.BrojTaksiVozila
+                                        </option>
+                                    }
+                                </select>
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="right">
+                            <input type="submit" value="Dodaj Vozilo" />
+                        </td>
+
+                    </tr>
+
+ 
+                    <input type="hidden" id="Vozac" name="Vozac" value=@TempData["VozacIme"].ToString()>                    
+                                       
+ 
+                </table>
+ 
+        </fieldset>
+        </p>
+    </section>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

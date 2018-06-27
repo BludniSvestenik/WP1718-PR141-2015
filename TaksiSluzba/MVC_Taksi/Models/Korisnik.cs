@@ -16,11 +16,11 @@ namespace MVC_Taksi.Models
             this.Lozinka = null;
             this.Ime = null;
             this.Prezime = null;
-            //this.Pol = Pol.MUSKO;
+            this.Pol = Pol.MUSKO;
             this.JMBG = null;
             this.KontaktTelefon = null;
             this.Email = null;
-           // this.Uloga = Uloga.MUSTERIJA;
+            this.Uloga = Uloga.MUSTERIJA;
             this.Voznje = null;
 
         }
